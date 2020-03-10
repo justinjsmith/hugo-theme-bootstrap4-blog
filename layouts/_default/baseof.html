@@ -41,32 +41,21 @@
   </head>
 
   <body>
-
-    {{ block "masthead" . }}
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL | absLangURL }}">{{ i18n "home" }}</a>
-          {{- $currentPage := . -}}
+          <a class="blog-nav" href="/">
+            <img src="/masthead-logo-thumb.png" height="60" width="80" class="d-inline-block align-top" alt="">
+          </a>
+          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL }}">Home</a>
+          {{ $currentPage := . }}
           {{ range .Site.Menus.navbar }}
-          {{ $menuURL := .URL | absLangURL }}
-          <a class="nav-link{{ if or ($currentPage.IsMenuCurrent "navbar" .) ($currentPage.HasMenuCurrent "navbar" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+            {{ $menuURL := .URL | absLangURL }}
+            <a class="nav-link {{ if eq $currentPage.Title .Name }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
           {{ end }}
         </nav>
       </div>
     </div>
-    {{ end }}
-
-    {{ block "header" . }}
-    {{ if (ne .Site.Params.header_visible false) }}
-    <header class="blog-header">
-      <div class="container">
-        <h1 class="blog-title" dir="auto"><a href="{{ .Site.BaseURL | absURL }}" rel="home">{{ .Site.Title | safeHTML }}</a></h1>
-        {{ if .Site.Params.description }}<p class="lead blog-description" dir="auto">{{ .Site.Params.description | markdownify }}</p>{{ end }}
-      </div>
-    </header>
-    {{ end }}
-    {{ end }}
 
     {{ block "body" . }}
     <div class="container">
@@ -87,7 +76,7 @@
 
     {{ block "footer" . }}
     <footer class="blog-footer">
-      <p dir="auto">
+      <!-- <p dir="auto">
       {{ if .Site.Copyright }}
       {{ .Site.Copyright | markdownify }}
       {{ else }}
@@ -96,12 +85,10 @@
       </p>
       <p>
       <a href="#">{{ i18n "backToTop" }}</a>
-      </p>
+      </p> -->
     </footer>
     {{ end }}
 
   </body>
 
 </html>
-
-{{- /* vim: set ts=2 sw=2 et: */}}

@@ -19,7 +19,7 @@ summaryLength = 50
 
 [[menu.sidebar]]
   name = "Link 1"
-  url = "https://example.com"
+  url = "https://foo.com"
 
 [[menu.sidebar]]
   name = "Link 2"
@@ -34,7 +34,7 @@ summaryLength = 50
 #
 [params]
   # Site author
-  author = "Your Name"
+  author = "Justin Smith"
 
   # Description/subtitle for homepage (can be Markdown)
   description = "A simple Hugo theme based on the Bootstrap v4 blog example."
@@ -62,7 +62,7 @@ summaryLength = 50
   #cookie_consent_info_url = "http://cookiesandyou.com"
 
   # show sharing icons on pages/posts (default: true)
-  #sharingicons = true
+  sharingicons = true
 
   # Display post summaries instead of content in list templates (default: true)
   #truncate = true
@@ -82,11 +82,11 @@ summaryLength = 50
     # Optional, used for attribution in Twitter cards (ideally not a person
     # for example: nytimes, flickr, NatGeo, etc).
     # See: https://dev.twitter.com/cards/types/summary-large-image
-    twitter = "username"
+    twitter = "@justinjsmith"
 
 # Default content language for Hugo 0.17's multilingual support (default is "en")
 # See: https://github.com/spf13/hugo/blob/master/docs/content/content/multilingual.md
-#DefaultContentLanguage = "en"
+DefaultContentLanguage = "en"
 
 # Languages to render
 #[languages.en]
